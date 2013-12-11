@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12829c18-8196-4d10-b8f1-adbebf9c2ab6" name="Default" comment="" />
+    <list default="true" id="12829c18-8196-4d10-b8f1-adbebf9c2ab6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="unterricht.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +29,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="4" selection-start="101" selection-end="101" vertical-scroll-proportion="0.28465804" vertical-offset="0" max-vertical-offset="849">
+            <state line="17" column="14" selection-start="359" selection-end="359" vertical-scroll-proportion="0.45833334" vertical-offset="132" max-vertical-offset="1540">
               <folding />
             </state>
           </provider>
@@ -355,7 +358,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="4" selection-start="101" selection-end="101" vertical-scroll-proportion="0.28465804" vertical-offset="0" max-vertical-offset="849">
+        <state line="17" column="14" selection-start="359" selection-end="359" vertical-scroll-proportion="0.45833334" vertical-offset="132" max-vertical-offset="1540">
           <folding />
         </state>
       </provider>
