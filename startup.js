@@ -7,15 +7,32 @@
 
 
 	function buildUI () {
-		var headingHtml,
-			menuHtml;
+		var $headingHtml,
+			$menuHtml;
 
 		if (headingTemplate !== null && menuTemplate !== null && postitTemplate !== null) {
-			headingHtml = headingTemplate({title : "Postit Inferno - in english"});
-			menuHtml = menuTemplate({label_new : "New", label_delete : "Delete"});
+			$headingHtml = $(headingTemplate({title : "Postit Inferno - in english"}));
+			$menuHtml = $(menuTemplate({label_new : "New", label_delete : "Delete"}));
 
-			$('#heading').append(headingHtml);
-			$('#menu').append(menuHtml);
+			$menuHtml.find('#new').click(function (event) {
+				var postitCount = $('#postit-container').children().size(),
+					$postitHtml = $(postitTemplate({number : postitCount}));
+
+				$postitHtml.click(function(event) {
+					$('.selected').removeClass('selected');
+					$(this).addClass('selected');
+				});
+
+				$('#postit-container').append($postitHtml);
+			});
+
+
+			$menuHtml.find('#delete').click(function(event) {
+				$('.selected').remove();
+			});
+
+			$('#heading').append($headingHtml);
+			$('#menu').append($menuHtml);
 		}
 	}
 
