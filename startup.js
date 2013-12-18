@@ -28,10 +28,10 @@
 
 		for (i = 0; i < postitContent.length; i += 1) {
 			$currentPostit = $(postitTemplate({content : postitContent[i]}));
+			$postitContainer.append($currentPostit);
 			$currentPostit.click(function () {
 				startEditing($(this));
 			});
-			$postitContainer.append($currentPostit);
 		}
 	}
 
