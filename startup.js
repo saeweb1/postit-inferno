@@ -23,13 +23,15 @@
 	function loadPostits () {
 		var postitContent = JSON.parse(localStorage.getItem('postit-content')),
 			i,
-			$currentPostit;
+			$currentPostit,
+			$postitContainer = $('#postit-container');
 
 		for (i = 0; i < postitContent.length; i += 1) {
 			$currentPostit = $(postitTemplate({content : postitContent[i]}));
 			$currentPostit.click(function () {
 				startEditing($(this));
 			});
+			$postitContainer.append($currentPostit);
 		}
 	}
 
@@ -101,7 +103,12 @@
 
 
 			$headingHtml = $(headingTemplate({title : "Postit Inferno - in english"}));
-			$menuHtml = $(menuTemplate({label_new : "New", label_delete : "Delete"}));
+			$menuHtml = $(menuTemplate({
+				label_new : "New",
+				label_delete : "Delete",
+				label_save : "Save",
+				label_load : 'Load'
+			}));
 
 			$menuHtml.find('#new').click(function (event) {
 				var postitCount = $('#postit-container').children().size(),
@@ -121,6 +128,15 @@
 
 			$menuHtml.find('#delete').click(function(event) {
 				$('.selected').remove();
+			});
+
+			$menuHtml.find('#save').click(function (event) {
+				savePostits();
+			});
+
+
+			$menuHtml.find('#load').click(function (event) {
+				loadPostits();
 			});
 
 			$('#heading').append($headingHtml);
