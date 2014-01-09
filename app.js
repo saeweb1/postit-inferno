@@ -5,7 +5,7 @@ var express = require('express'),
 	ObjectId = mongodb.ObjectID,
 	app = express();
 
-
+// add bodyparser to the express app
 app.use(express.bodyParser());
 
 
