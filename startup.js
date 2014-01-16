@@ -4,15 +4,31 @@
 		headingTemplate = null,
 		menuTemplate = null,
 		postitTemplate = null,
-		postitEditTemplate = null;
+		postitEditTemplate = null,
+        restBaseUrl = 'http://192.168.1.57:3000';
 
 
 
 	function savePostits () {
 		var postitContent = [];
 
+        console.log('hier');
+
 		$('.postit').each(function () {
 			postitContent.push($(this).data('content'));
+
+            $.ajax({
+                'type' : 'post',
+                'url'  : restBaseUrl + '/postits',
+                'dataType' : 'json',
+                'data' : JSON.stringify($(this).data('content')),
+                'success' : function (data) {
+
+                },
+                'error' : function (err, jqXHR, data) {
+
+                }
+            });
 		});
 
 		localStorage.setItem('postit-content', JSON.stringify(postitContent));
@@ -26,13 +42,15 @@
 			$currentPostit,
 			$postitContainer = $('#postit-container');
 
-		for (i = 0; i < postitContent.length; i += 1) {
-			$currentPostit = $(postitTemplate({content : postitContent[i]}));
-			$postitContainer.append($currentPostit);
-			$currentPostit.click(function () {
-				startEditing($(this));
-			});
-		}
+        if (postitContent) {
+            for (i = 0; i < postitContent.length; i += 1) {
+                $currentPostit = $(postitTemplate({content : postitContent[i]}));
+                $postitContainer.append($currentPostit);
+                $currentPostit.click(function () {
+                    startEditing($(this));
+                });
+            }
+        }
 	}
 
 
@@ -131,12 +149,12 @@
 			});
 
 			$menuHtml.find('#save').click(function (event) {
-				savePostits();
+                savePostits();
 			});
 
 
 			$menuHtml.find('#load').click(function (event) {
-				loadPostits();
+                loadPostits();
 			});
 
 			$('#heading').append($headingHtml);

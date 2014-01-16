@@ -1,19 +1,3 @@
-/**
- * DocComment
- *
- * @param -> Funktionsparameter
- * @var -> Variable
- * @return -> Rückgabewert
- * @since -> Versionsinfo
- * @deprecated -> markierung, dass die Funktion /Variable /Klasse
- *                in einer nächsten Version entfernt wird und nicht mehr verwendet werden
- *                soll
- *
- *
- */
-
-
-
 var express = require('express'),
 	mongodb = require('mongodb'),
 	MongoClient = mongodb.MongoClient,
@@ -22,7 +6,12 @@ var express = require('express'),
 
 // add bodyparser to the express app
 app.use(express.bodyParser());
-
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Expose-Headers', 'Content-type');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    next();
+});
 
 /**
  * get a list of all postits
